@@ -1,9 +1,7 @@
-import inspect
-
 
 def introspection_info(obj):
     types = type(obj)
-    attributes = dir(obj)
+    attributes = hasattr(obj, attr)
     methods_ = [method for method in attributes if callable(getattr(obj, method))]
     modules_ = obj.__class__.__module__
     doc_ = obj.__doc__
@@ -12,6 +10,6 @@ def introspection_info(obj):
             'denominator_': denominator_}
     return info
 
-
+attr = 'rrt'
 number_info = introspection_info(42)
 print(number_info)
